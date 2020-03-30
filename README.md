@@ -5,7 +5,7 @@ Install [python](https://www.python.org/downloads/) (version 3 or above), [numpy
 >>- Run the following command in command prompt `pip install -r requirements.txt`
 
 All the necessary packages and libraries will get installed automatically.
-#### TO run the module-
+#### To run the module-
 >>- Copy the folder named 'HackCovid' in PycharmProjects.
 >>- Open Command Prompt and type python run.py
 
