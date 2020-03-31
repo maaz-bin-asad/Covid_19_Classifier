@@ -18,3 +18,6 @@ selenium==3.141.0
 six==1.14.0
 urllib3==1.25.8
 virtualenv==20.0.15
+flask==1.1.1
+Flask-SQLAlchemy====2.4.1
+Flask-WTF==0.14
