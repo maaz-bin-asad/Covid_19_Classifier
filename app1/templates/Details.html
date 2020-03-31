@@ -6,39 +6,38 @@
 <!--    <scripts>-->
 <!--        function initMap(){-->
 <!--            var location = {lat: -25.363, lng: 131.044};-->
-<!--            var map = new google.maps.Map(document.getElementById("map"), {zoom: 4, center: location});-->
+<!--                            var grayStyles = [-->
+<!--                                {-->
+<!--                                    featureType: "all",-->
+<!--                                    stylers: [{saturation: -90},{lightness: 50}]-->
+<!--                                },-->
+<!--                                {-->
+<!--                                    elementType: 'labels.text.fill',-->
+<!--                                    stylers: [{color: '#ccdee9'}]-->
+<!--                                }-->
+<!--                           ];-->
+<!--            var map = new google.maps.Map(document.getElementById("map"), {zoom: 4, center: location, styles: grayStyles, scrollwheel: false});-->
 <!--            var marker = new google.maps.Marker({position: location, map: map})-->
 <!--        }-->
 <!--    </scripts>-->
 <!--    <scripts async defer src="https://maps.googleapis.com/maps/api/js?sensor=False&callback=initMap"></scripts>-->
+    <div><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters">Click here for myth busters regarding Covid-19 provided by WHO</a></div><br>
+
+    <div><h4>52 testing sites for COVID ‐19 in India</h4></div>
 
     <div class="container">
                 <div class="d-none d-sm-block mb-5 pb-4">
                     <div id="map" style="height: 700px; position: relative; overflow: hidden;"></div>
                        <script>
                         function initMap() {
-                           var locations = [[]];
-                            {% for coord in coords %}
-                                locations.push([ '{{ coord.address }}', {{ coord.lat }}, {{ coord.lng }}]);
-                            {% endfor %}
-                           var grayStyles = [
-                                {
-                                    featureType: "all",
-                                    stylers: [{saturation: -90},{lightness: 50}]
-                                },
-                                {
-                                    elementType: 'labels.text.fill',
-                                    stylers: [{color: '#ccdee9'}]
-                                }
-                           ];
+                           var locations = [['Sri Venkateswara Institute Of Medical Sciences, Tirupati', '13.376134', '77.096917'], ['Andhra Medical College, Visakhapatnam, Andhra Pradesh', '15.821800', '78.038841'], ['GMC, Anantapur, AP', '13.804940', '77.494057'], ['Regional Medical Research Centre, Port Blair, Andaman and Nicobar', '11.6347', '92.7146'], ['Gauhati Medical College, Guwahati', '26.158260', '91.759590'], ['Regional Medical Research Center, Dibrugarh', '27.472834', '94.911964'], ['Rajendra Memorial Research Institute of Medical Sciences, Patna', '25.599750', '85.197518'], ['Post Graduate Institute of Medical Education & Research, Chandigarh', '11.950202', '79.800339'], ['All India Institute Medical Sciences, Raipur', '22.467370', '88.378590'], ['All India Institute Medical Sciences, Delhi', '28.645300', '77.167850'], ['National Centre for Disease Control, Delhi', '28.614920', '77.221730'], ['BJ Medical College, Ahmedabad', '20.474450', '85.888370'], ['M.P.Shah Government Medical College, Jamnagar', '31.650250', '74.884960'], ['BPS Govt Medical College, Sonipat', '9.596820', '76.516320'], ['Indira Gandhi Medical College, Shimla, Himachal Pradesh', '23.260180', '77.389771'], ['Sher‐e‐ Kashmir Institute of Medical Sciences, Srinagar', '34.1361', '74.8000'], ['Government Medical College, Jammu', '31.650249', '74.884956'], ['MGM Medical College, Jamshedpur', '20.474450', '85.888370'], ['Bangalore Medical College & Research Institute, Bangalore', '13.020760', '77.617620'], ['Mysore Medical College & Research Institute, Mysore', '11.301500', '75.861530'], ['Hassan Inst. of Med. Sciences, Hassan, Karnataka', '13.009711', '76.102898'], ['Shimoga Inst. of Med. Sciences, Shivamogga, Karnataka', '13.931882', '75.616549'], ['National Institute of Cholera and Enteric Diseasem, Kolkata', '22.5726', '88.3639'], ['IPGMER, Kolkata', '22.5726', '88.3639'], ['Jawaharlal Nehru Medical College, Aligarh', '27.8974', '78.0880'], ['Institute of Medical Sciences, Varanasi', '25.31', '82.9'], ['Kings George Medical University, Lucknow', '26.84', '80.9462'], ['Gandhi Medical College(Secunderabad)', '17.4399', '78.4983'], ['Government Medical College, Haldwani', '29.21', '79.51'], ['Government Medical College, Agartala', '23.8315', '91.2868'], ['Government Medical College, Theni', '10.0104', '77.4768'], ['The King Institute of Preventive Medicine and Research', '13.0124', '80.2176'], ['SP Med. College, Bikaner', '29.0229', '73.3119'], ['Jhalawar Medical College, Jhalawar', '24.5973', '76.1610'], ['Dr. S.N Medical College, Jodhpur', '26.2389', '73.0243'], ['Sawal Man Singh, Jaipur', '26.9124', '75.7873'], ['Government Medical College, Amritsar', '31.6340', '74.8723'], ['Government Medical College, Patiala', '30.3398', '76.3869'], ['Jawaharal Institute of Postgraduate Medical Education and Research, Puducherry', '11.9416', '79.8083'], ['Regional Medical Research Center, Bhubaneswar', '20.2961', '85.8248'], ['J.N Inst. of Med. Sciences Hospital, Imphal-East', '24.8170', '93.9368'], ['Kasturba Hospital for Infectious Diseases, Mumbai', '19.0760', '72.8777'], ['Indira Gandhi Government Medical College, Nagpur', '21.1458', '79.0882'], ['NEIGRI of Health and Medical Sciences, Shillong', '25.5788', '91.8933'], ['National Institute of Research in Tribal Health, Jabalpur', '23.1815', '79.9864'], ['All India Institute of Medical Sciences, Bhopal', '23.2599', '77.4126'], ['Govt. Medical College, Kozhikhode', '11.2588', '75.7804'], ['Govt. Medical College, Thiruvananthapuram', '8.5241', '76.9366'], ['National Institute of Virology Field Unit, Vandanam', '9.4091', '76.3463']];
+<!--                           var locations = [['Sri Venkateswara Institute Of Medical Sciences, Tirupati', '13.376134', '77.096917']];-->
                            var map = new google.maps.Map(document.getElementById('map'), {
-                                        zoom: 7,
-                                        center: new google.maps.LatLng(32.7767, -96.797),
-                                        //mapTypeId: google.maps.MapTypeId.HYBRRID
-                                        styles: grayStyles,
+                                        zoom: 5,
+                                        center: new google.maps.LatLng(20.5937, 78.9629),
                                         scrollwheel: false
                                         });
-                           var infowindow = new google.maps.InfoWindow();
+                           var info_window = new google.maps.InfoWindow();
 
                            var marker, i;
 
@@ -49,17 +48,14 @@
                                });
                                google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                return function() {
-                                infowindow.setContent(locations[i][0]);
-                                infowindow.open(map, marker);
+                                info_window.setContent(locations[i][0]);
+                                info_window.open(map, marker);
                                }
                                })(marker, i));
                            }
-
                         }
                        </script>
-                       <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;callback=initMap">
-                       </script>
-
+                       <script async defer src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap"></script>
                 </div>
     </div>
 {% endblock content %}
