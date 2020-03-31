@@ -11,18 +11,26 @@ Now, follow these instructions.
 When done, open the project in an IDE and select the appropriate interpreter.
 
 From Command Line Interface
-Unix Bash:
-$ export FLASK_APP=hello
-$ flask run
-Windows CMD:
-> set FLASK_APP=hello
-> flask run
-Output:
- $flask run
- Serving Flask app "hello"
- Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+1. **Unix Bash:**
+```
+export FLASK_APP=app
+flask run
+```
+
+2. **Windows CMD:**
+```
+set FLASK_APP=app
+flask run
+```
+
+**Output:**
+```
+flask run
+Serving Flask app "app"
+Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
 Copy http://127.0.0.1:5000/ and open it in a browser.
 
-Without using shell
-Open run.py
-Hit Run, using any IDE.
+Without using shell<br>
+Open run.py<br>
+Hit Run, using any IDE
