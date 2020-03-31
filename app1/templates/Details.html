@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+    <p>{{ details_of_user }}</p>
+<!--    <div id="map"></div>-->
+
+<!--    <scripts>-->
+<!--        function initMap(){-->
+<!--            var location = {lat: -25.363, lng: 131.044};-->
+<!--            var map = new google.maps.Map(document.getElementById("map"), {zoom: 4, center: location});-->
+<!--            var marker = new google.maps.Marker({position: location, map: map})-->
+<!--        }-->
+<!--    </scripts>-->
+<!--    <scripts async defer src="https://maps.googleapis.com/maps/api/js?sensor=False&callback=initMap"></scripts>-->
+
+    <div class="container">
+                <div class="d-none d-sm-block mb-5 pb-4">
+                    <div id="map" style="height: 700px; position: relative; overflow: hidden;"></div>
+                       <script>
+                        function initMap() {
+                           var locations = [[]];
+                            {% for coord in coords %}
+                                locations.push([ '{{ coord.address }}', {{ coord.lat }}, {{ coord.lng }}]);
+                            {% endfor %}
+                           var grayStyles = [
+                                {
+                                    featureType: "all",
+                                    stylers: [{saturation: -90},{lightness: 50}]
+                                },
+                                {
+                                    elementType: 'labels.text.fill',
+                                    stylers: [{color: '#ccdee9'}]
+                                }
+                           ];
+                           var map = new google.maps.Map(document.getElementById('map'), {
+                                        zoom: 7,
+                                        center: new google.maps.LatLng(32.7767, -96.797),
+                                        //mapTypeId: google.maps.MapTypeId.HYBRRID
+                                        styles: grayStyles,
+                                        scrollwheel: false
+                                        });
+                           var infowindow = new google.maps.InfoWindow();
+
+                           var marker, i;
+
+                           for (i = 0; i < locations.length; i++) {
+                               marker = new google.maps.Marker({
+                               position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                               map: map
+                               });
+                               google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                               return function() {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                               }
+                               })(marker, i));
+                           }
+
+                        }
+                       </script>
+                       <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;callback=initMap">
+                       </script>
+
+                </div>
+    </div>
+{% endblock content %}
