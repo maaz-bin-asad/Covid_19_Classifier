@@ -18,7 +18,7 @@ def register():
         # user = User(oxygen_concentration=form.oxygen_concentration.data, dry_cough=form.dry_cough.data,
         #  septic_shock=form.septic_shock.data, age=form.age.data, breathe_rate=form.breathe_rate.data,
         # prior_disease=form.prior_disease.data)
-        dataset = pd.read_csv('C:\ProgramFiles\JetBrains\PyCharmCommunityEdition2019.3.3\Covid19_Final_dataset.csv')
+        dataset = pd.read_csv('C:\ProgramFiles\JetBrains\PyCharm Community Edition2019.3.3\Covid19_Final_dataset.csv')
         # Reading the covid-19 dataset using pandas
         # print(dataset.head())
         dataset = dataset.replace([np.inf, -np.inf], np.nan).dropna(axis=0)
